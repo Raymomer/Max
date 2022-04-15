@@ -25,11 +25,7 @@ class Detial
     function read()
     {
         $sql = "SELECT * FROM  $this->table_name ";
-        // $this->conn->query($sql);
-
-
-        // $stmt  = mysqli_query($this->conn, $sql);
-
+ 
 
         $json = array();
         foreach (mysqli_fetch_all(mysqli_query($this->conn, $sql)) as $row) {
