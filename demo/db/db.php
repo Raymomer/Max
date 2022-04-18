@@ -46,7 +46,7 @@ class DB
                     no   CHAR(4)  NOT NULL,
                     date  DATE  NOT NULL,
                     type  CHAR (4) NOT NULL,
-                    time  CHAR (4) NOT NULL,
+                    time  VARCHAR (12) NOT NULL,
                     away_team CHAR (4) NOT NULL,
                     home_team CHAR (4) NOT NULL,
                     lose  FLOAT  NOT NULL,
