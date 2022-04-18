@@ -1,6 +1,8 @@
 <?php
 include  'db/db.php';
 
+
+
 $dbname = "contest";
 $searchDate = $_GET['date'];
 $url = "https://cp.zgzcw.com/lottery/jcplayvsForJsp.action?lotteryId=26&issue=$searchDate";
@@ -69,10 +71,12 @@ function catchDetial($element, $date)
     preg_match($re, $turn[0], $homeTeam);
     $homeTeam[0] = strip_tags($homeTeam[0], '<br>');
 
-    //取得比賽時間s
+    //取得比賽時間
     $re = '/<td ?class="wh-5 bf">[\w\W]+?(\d+:\d+)/';
     preg_match($re, $element, $time);
     $time[0] = preg_replace('/[\n\s\t]/', "", $time[0]);
+
+    // print_r($time[0] . PHP_EOL);
 
     // 取得積分
     $re = '/<td ?class="wh-7 b-l">[\w\W]+?(\d+\.\d+)[\w\W]+?(\d+\.\d+)<\/a>/';
@@ -82,6 +86,8 @@ function catchDetial($element, $date)
     $dbElement = "(no, date, type, time, away_team, home_team, lose, win)";
     $dbData = "('$number[1]', '$date[1]' ,'$competition[1]','$time[1]','$awayTeam[1]','$homeTeam[1]','$count[1]','$count[2]')";
 
+
+    print_r($dbData);
     $err = $db->insertDB($dbname, $dbElement, $dbData);
 
     if ($err != null) {
