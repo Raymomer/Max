@@ -1,10 +1,5 @@
 
 
-$(document).ready(function () {
-    $('#rows').DataTable();
-});
-
-
 function submit() {
 
     $('#rows').html("")
