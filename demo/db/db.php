@@ -29,7 +29,7 @@ class DB
         if ($this->conn->connect_error) {
             $this->error("Connection Table failed: " . $this->conn->connect_error);
         }
-        if ($show_log) {
+        if ($this->show_log) {
             echo ("Start database's connection <br>");
         }
 

@@ -7,7 +7,7 @@ $dbname = "contest";
 $searchDate = $_GET['date'];
 $url = "https://cp.zgzcw.com/lottery/jcplayvsForJsp.action?lotteryId=26&issue=$searchDate";
 $db = new DB($servername = "localhost", $username = "root", $password = "", $dbname = "contest", $show_log = TRUE);
-$db->show_log = TRUE;
+$db->show_log = FALSE;
 
 
 
