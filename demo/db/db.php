@@ -12,7 +12,7 @@ class DB
     public function __construct($servername = "localhost", $username = "root", $password = "", $dbname = "contest", $charset = 'utf8', $show_log = 'FALSE')
     {
 
-
+        // testPush
 
         //  check DB connect
         $this->conn = new mysqli($servername, $username, $password);
