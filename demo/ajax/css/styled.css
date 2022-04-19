@@ -1,0 +1,12 @@
+#detial {
+    margin: auto;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.contest-spinner {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 6%;
+    visibility: collapse;
+}
