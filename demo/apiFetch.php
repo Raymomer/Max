@@ -8,7 +8,7 @@ $response = new res();
 
 if (isset($_GET['date'])) {
 
-    // sleep(5);
+
 
 
     $searchDate = $_GET['date'];

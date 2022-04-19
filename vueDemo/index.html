@@ -3,37 +3,125 @@
 
 <head>
     <meta charset="utf-8">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14 " type="text/javascript" charset="utf-8">
-    </script>
+    <script src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14 " type="text/javascript" charset="utf-8">    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="css/styled.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
+        <input v-model="get.date" placeholder="xxxx-xx-xx">
+        <button v-on:click="Submit">Submit</button>
 
-        <input v-model="message" placeholder="xxxx-xx-xx">
-        <p>Date is: {{ message }}</p>
-        <button v-on:click="greet">Greet</button>
+        <input v-model="get.team" placeholder="">
+        <button v-on:click="Submit">Search</button>
+
+        <div class="contest-spinner" v-bind:style="{visibility: active}">
+            <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <div id="detial">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th>Competition</th>
+                        <th>Time</th>
+                        <th>Away team</th>
+                        <th>Home team</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="detial, index in detial">
+                        <th scope="row"> {{detial.no}}</th>
+                        <td>{{detial.type}}</td>
+                        <td>{{detial.time}}</td>
+                        <td>{{detial.away_team}}</td>
+                        <td>{{detial.home_team}}</td>
+                        <td>
+                            <span :class="countHealth(detial.lose)">{{detial.lose}}</span> : <span
+                                :class="countHealth(detial.win)">{{detial.win}}</span>
+                        </td>
+                        <!-- <td>{{detialCount}}}</td> -->
+                    </tr>
+                    <tr class="errorMsg">
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
     </div>
-
-
 
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
-                message: "",
-                message2: "",
-                checkedNames: [],
-                selected: ''
+                url: "http://localhost/Max/demo/apiFetch.php?",
+                get: {
+                    date: "",
+                    team: "",
+                },
+                detial: [],
+                active: "collapse",
+
             },
             //定義方法
             methods: {
-                greet: function (event) {
-                    alert('Date is' + this.message + '!')
-                }
-            }
+                Submit: function (event) {
+
+                    $('.errorMsg').html("")
+
+                    this.active = "visible"
+                    console.log(this.active)
+                    for (key in this.get) {
+                        this.url += '&' + key + "=" + this.get[key]
+                    }
+
+                    axios.get(this.url).then(response => {
+                        this.detial = response.data.payload;
+                        this.active = "collapse"
+
+                        if (!response.data.success || response.data.payload.length === 0) {
+                            $('.errorMsg').html(
+                                `<td colspan="6" >`
+                                + 'ERROR : <span class ="text-danger">' + response.data.error_message + `</span>
+                                </td>`
+                            )
+                        }
+
+                    }).catch(error => {
+                        console.log(error);
+                    })
+
+
+                },
+
+                countHealth: function (count) {
+
+                    if (count > 2) {
+                        return 'text-danger';
+                    } else {
+                        return 'text-primary';
+                    }
+
+                },
+
+                dataCounct: function () {
+                    return "testing <3"
+                },
+
+            },
         })
     </script>
 </body>
