@@ -16,10 +16,10 @@
 
 <body>
     <div id="app">
-        <input v-model="get.date" placeholder="xxxx-xx-xx">
+        <input v-model="get.date" v-on:keyup.enter="Submit" placeholder="xxxx-xx-xx">
         <button v-on:click="Submit">Submit</button>
 
-        <input v-model="get.team" placeholder="">
+        <input v-model="get.team" v-on:keyup.enter="Submit" placeholder="">
         <button v-on:click="Submit">Search</button>
 
         <div class="contest-spinner" v-bind:style="{visibility: active}">
@@ -51,7 +51,6 @@
                             <span :class="countHealth(detial.lose)">{{detial.lose}}</span> : <span
                                 :class="countHealth(detial.win)">{{detial.win}}</span>
                         </td>
-                        <!-- <td>{{detialCount}}}</td> -->
                     </tr>
                     <tr class="errorMsg">
 
@@ -69,7 +68,7 @@
             data: {
                 url: "http://localhost/Max/demo/apiFetch.php?",
                 get: {
-                    date: "",
+                    date: "2022-04-02",
                     team: "",
                 },
                 detial: [],
@@ -114,12 +113,8 @@
                     } else {
                         return 'text-primary';
                     }
-
                 },
 
-                dataCounct: function () {
-                    return "testing <3"
-                },
 
             },
         })
