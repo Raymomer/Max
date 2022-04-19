@@ -2,5 +2,5 @@
 
 
 ## 2022-04-19
-Markup : * Learn url
-            * https://www.makeareadme.com/
+* Learn git's url
+    * https://www.makeareadme.com/
