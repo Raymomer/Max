@@ -85,36 +85,36 @@
             methods: {
                 Submit: function (event) {
 
+                    getData()
+                    // // let loader visible 
+                    // this.active = "visible"
 
-                    // let loader visible 
-                    this.active = "visible"
+                    // this.errorMessage.active = false
 
-                    this.errorMessage.active = false
+                    // // catch get_url parameter
+                    // var get = ""
+                    // for (key in this.get) {
+                    //     get += '&' + key + "=" + this.get[key]
+                    // }
 
-                    // catch get_url parameter
-                    var get = ""
-                    for (key in this.get) {
-                        get += '&' + key + "=" + this.get[key]
-                    }
+                    // // get response with "http://127.0.0.1:8000/Max/api/db?"
+                    // axios.get(this.url + get).then(response => {
 
-                    // get response with "http://127.0.0.1:8000/Max/api/db?"
-                    axios.get(this.url + get).then(response => {
-
-                        this.detial = response.data;
-                        this.active = "collapse";
-
-
-                    }).catch(error => {
-
-                        this.active = "collapse"
-
-                        this.detial = [];
-                        this.errorMessage.active = true
-                        this.errorMessage.html = error
+                    //     this.detial = response.data;
+                    //     this.active = "collapse";
 
 
+                    // }).catch(error => {
 
-                    })
+                    //     this.active = "collapse"
+
+                    //     this.detial = [];
+                    //     this.errorMessage.active = true
+                    //     this.errorMessage.html = error
+
+
+
+                    // })
 
 
                 },
@@ -132,6 +132,14 @@
 
             },
         })
+
+        function getData() {
+            console.log("123")
+        }
+        // axios.get()
+
+
+
     </script>
 </body>
 
