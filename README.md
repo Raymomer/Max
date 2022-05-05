@@ -12,8 +12,13 @@ git clone https://github.com/Raymomer/MaxVue-cli.git
 git config --global user.email elva9007790@gmail.com \
 git config --global user.name  ray
 
+## 2022-05-05
+
 ## 2022-04-19
 * Learn git's url
     * https://www.makeareadme.com/
 
 * Add new project for Vue
+
+
+
