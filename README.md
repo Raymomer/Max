@@ -1,9 +1,15 @@
 # Max
 ## Git all project
 
+<<<<<<< HEAD
 git clone https://github.com/Raymomer/Max.git<br />
 git clone https://github.com/Raymomer/MaxLaravel.git<br />
 git clone https://github.com/Raymomer/MaxVue-cli-v1.git<br />
+=======
+git clone https://github.com/Raymomer/Max.git __
+git clone https://github.com/Raymomer/MaxLaravel.git
+git clone https://github.com/Raymomer/MaxVue-cli-v1.git
+>>>>>>> f46bbef2afe886fdf92cf73b81b389d98f1c9846
 git clone https://github.com/Raymomer/MaxVue-cli.git
 
 
