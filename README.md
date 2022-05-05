@@ -9,7 +9,7 @@ git clone https://github.com/Raymomer/MaxVue-cli.git
 
 ## Set Env 
 
-git config --global user.email elva9007790@gmail.com
+git config --global user.email elva9007790@gmail.com \
 git config --global user.name  ray
 
 ## 2022-04-19
