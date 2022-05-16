@@ -4,7 +4,8 @@
 git clone https://github.com/Raymomer/Max.git \
 git clone https://github.com/Raymomer/MaxLaravel.git \
 git clone https://github.com/Raymomer/MaxVue-cli-v1.git \
-git clone https://github.com/Raymomer/MaxVue-cli.git
+git clone https://github.com/Raymomer/MaxVue-cli.git \
+git clone https://github.com/Raymomer/ChatApp.git
 
 
 ## Set Env 
